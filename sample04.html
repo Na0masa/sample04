@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>基本統計量</title>
+    </head>
+
+    <body>
+        <input id="datafile" type="file">
+        
+        <script>
+            const input = document.getElementById('datafile');
+
+            const reader = new FileReader();  //FileReaderを定義
+            
+            input.addEventListener('change' , (e) =>{  //ファイルの読み込み
+                const file = e.target.files[0];  //ファイルの種類
+                if (file.type === 'application/vnd.ms-excel'){
+                    reader.onload = () => {
+                        console.log(reader.result);
+                    }
+                    reader.readAsText(file);
+                }
+            });
+        </script>
+    </body>    
+</html>
